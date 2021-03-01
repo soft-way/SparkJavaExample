@@ -1,2 +1,4 @@
 # SparkJavaExample
-Spark Java Example for Restful API
+
+Restful API Example by SparkJava framework
+
