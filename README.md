@@ -5,8 +5,9 @@ Restful API Example by SparkJava framework
 How to run?
 
 1. Build
+```bash
 mvn package
-
+```
 2. Run
 ```bash
 cd target
