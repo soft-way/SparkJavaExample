@@ -4,40 +4,55 @@ package com.softway.SparkJavaExample.routes;
 import static spark.Spark.*;
 
 import spark.Request;
+import spark.Response;
 import spark.RouteGroup;
 
 public class UnitRoute implements RouteGroup {
     @Override
     public void addRoutes() {
-        get("/unit", (request, response) -> {
+        get("/units", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return UnitList(req, res);
         });        
 
-        post("/unit", (request, response) -> {
+        get("/units/:unit_id", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return UnitList(req, res, req.params(":unit_id"));
         });        
 
-        put("/unit", (request, response) -> {
+        post("/units", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return UnitList(req, res);
         });        
 
-        patch("/unit", (request, response) -> {
+        put("/units", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return req.requestMethod() + " Unit";
         });        
 
-        delete("/unit", (request, response) -> {
+        patch("/units", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return req.requestMethod() + " Unit";
         });        
 
-        options("/unit", (request, response) -> {
+        delete("/units", (req, res) -> {
             // Show something
-            return request.requestMethod() + " Unit";
+            return req.requestMethod() + " Unit";
         });        
 
-    }  
+        options("/units", (req, res) -> {
+            // Show something
+            return req.requestMethod() + " Unit";
+        });        
+
+    }
+
+    private String UnitList(Request req, Response res) {
+        return "List all units";
+    }
+
+    private String UnitList(Request req, Response res, String unit_id) {
+        return "List unit " + unit_id;
+    }
+
 }
